@@ -2,39 +2,60 @@
 <html lang="ja">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    <title>hopper Frog</title>
+    <title>Hopper Frog</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <div id="game">
+    <main id="game">
 
-        <div id="world">
+        <!-- ゲーム画面 -->
+        <section id="world">
+
+            <!-- 背景画像 -->
+            <img id="background" src="back.png" alt="背景">
 
             <!-- スコア -->
-            <div id="score">0000</div>
+            <div id="score">
+                0000
+            </div>
+
+            <!-- プレイヤー -->
+            <img id="player" src="frog1.png" alt="プレイヤー">
+
+            <!-- 障害物を追加する場所 -->
+            <div id="obstacles"></div>
 
             <!-- スタートメッセージ -->
             <div id="message">
                 TAP TO START
             </div>
 
-            <!-- 障害物 -->
-            <div class="pipe"></div>
-            <div class="hole"></div>
+            <!-- ゲームオーバー画面（最初は非表示） -->
+            <div id="gameOver">
 
-            <!-- プレイヤー -->
-<img id="player" src="frog1.png" alt="frog">
+                <h1>GAME OVER</h1>
 
-        </div>
+                <p id="finalScore"></p>
 
-    </div>
+                <button id="retryButton">
+                    RETRY
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
 
     <script src="script.js"></script>
 
