@@ -199,3 +199,27 @@ document.addEventListener("pointerdown",()=>{
 // ======================================
 
 resizeGame();
+
+// ==============================
+// ゲーム全体を画面サイズに合わせる
+// ==============================
+
+function fitGame(){
+
+    const game = document.getElementById("game");
+
+    const scale = Math.min(
+
+        window.innerWidth / 1080,
+
+        window.innerHeight / 1920
+
+    );
+
+    game.style.transform = `scale(${scale})`;
+
+}
+
+window.addEventListener("resize", fitGame);
+
+fitGame();
