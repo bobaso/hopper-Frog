@@ -51,11 +51,22 @@ let groundY;
 
 function resizeGame(){
 
-    groundY = window.innerHeight * 0.15;
+    const worldRect = world.getBoundingClientRect();
 
-    playerX = window.innerWidth * 0.15;
+    // ゲーム画面のサイズ
+    const worldWidth = worldRect.width;
+    const worldHeight = worldRect.height;
 
-    playerY = groundY;
+    // プレイヤーの初期位置
+    playerX = worldWidth * 0.15;
+
+    // 地面の高さ（背景画像の15%）
+    groundY = worldHeight * 0.15;
+
+    // 初回だけ地面に立たせる
+    if(!gameStarted){
+        playerY = groundY;
+    }
 
     updatePlayer();
 
