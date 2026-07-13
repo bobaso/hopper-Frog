@@ -73,22 +73,7 @@ body{
     background-repeat:no-repeat;
 }
 
-/* ---------- 地面 ---------- */
 
-#ground{
-
-    position:absolute;
-
-    bottom:0;
-
-    width:100%;
-
-    height:15%;
-
-    background:#69b44a;
-
-    border-top:.7vh solid #4b8b37;
-}
 
 /* ---------- プレイヤー ---------- */
 
@@ -141,26 +126,7 @@ body{
     background:#222;
 }
 
-/* ---------- 雲 ---------- */
 
-.cloud{
-
-    position:absolute;
-
-    font-size:9vw;
-}
-
-.cloud1{
-
-    top:8%;
-    left:12%;
-}
-
-.cloud2{
-
-    top:18%;
-    right:12%;
-}
 
 /* ---------- メッセージ ---------- */
 
