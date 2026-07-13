@@ -38,21 +38,25 @@ body{
 
 #score{
 
-    height:8%;
+    position:absolute;
 
-    display:flex;
+    top:4%;
+    left:5%;
 
-    justify-content:center;
+    z-index:100;
 
-    align-items:center;
+    color:white;
 
-    font-size:5vw;
+    font-size:8vw;
 
     font-weight:bold;
 
-    background:white;
+    text-shadow:
+        3px 3px 0 #000,
+       -3px 3px 0 #000,
+        3px -3px 0 #000,
+       -3px -3px 0 #000;
 }
-
 /* ---------- ゲーム ---------- */
 
 #world{
@@ -161,17 +165,26 @@ body{
 
 #message{
 
-    height:8%;
+    position:absolute;
 
-    display:flex;
+    left:50%;
+    top:45%;
 
-    justify-content:center;
+    transform:translate(-50%,-50%);
 
-    align-items:center;
+    z-index:100;
 
-    background:white;
+    color:white;
 
-    font-size:5vw;
+    font-size:7vw;
 
     font-weight:bold;
+
+    text-align:center;
+
+    text-shadow:
+        2px 2px 0 #000,
+       -2px 2px 0 #000,
+        2px -2px 0 #000,
+       -2px -2px 0 #000;
 }
