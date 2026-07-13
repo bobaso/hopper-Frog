@@ -6,8 +6,8 @@ const player = document.getElementById("player");
 
 // アニメーション画像
 const frames = [
-    "img/frog1.png",
-    "img/frog2.png"
+    "frog1.png",
+    "frog2.png"
 ];
 
 // 現在の画像番号
