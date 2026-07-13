@@ -1,150 +1,101 @@
-//==============================
+// ======================================
 // HTML取得
-//==============================
+// ======================================
 
-const player = document.getElementById("player");
-const message = document.getElementById("message");
 const world = document.getElementById("world");
+const player = document.getElementById("player");
+const score = document.getElementById("score");
+const message = document.getElementById("message");
 
-//==============================
-// アニメーション画像
-//==============================
+// ======================================
+// ゲーム設定
+// ======================================
 
-const frames = [
+const DESIGN_WIDTH = 1080;
+const DESIGN_HEIGHT = 1920;
+
+// 背景画像の地面高さ
+const GROUND_RATE = 288 / 1920;
+
+// プレイヤーサイズ
+const PLAYER_SIZE = 170;
+
+// ======================================
+// プレイヤー
+// ======================================
+
+const frogImages = [
     "frog1.png",
     "frog2.png"
 ];
 
 let frame = 0;
 
-//==============================
+const playerData = {
+
+    x: 0,
+    y: 0,
+
+    width: PLAYER_SIZE,
+    height: PLAYER_SIZE,
+
+    velocityY: 0,
+
+    onGround: true
+
+};
+
+// ======================================
 // ゲーム状態
-//==============================
+// ======================================
 
 let gameStarted = false;
 
-//==============================
-// プレイヤー
-//==============================
-
-// 横位置
-let playerX;
-
-// 高さ
-let playerY;
-
-// ジャンプ速度
-let velocityY = 0;
-
-// 重力
-const gravity = -0.8;
-
-// ジャンプ力
-const jumpPower = 15;
-
-// 地面の高さ
-let groundY;
-
-//==============================
-// 初期化
-//==============================
+// ======================================
+// リサイズ
+// ======================================
 
 function resizeGame(){
-player.style.width = (worldWidth * 0.13) + "px";
-    const worldRect = world.getBoundingClientRect();
 
-    // ゲーム画面のサイズ
-    const worldWidth = worldRect.width;
-    const worldHeight = worldRect.height;
+    const rect = world.getBoundingClientRect();
 
-    // プレイヤーの初期位置
-    playerX = worldWidth * 0.15;
+    const scaleX = rect.width / DESIGN_WIDTH;
+    const scaleY = rect.height / DESIGN_HEIGHT;
 
-    // 地面の高さ（背景画像の15%）
-    groundY = worldHeight * 0.15;
+    playerData.width = PLAYER_SIZE * scaleX;
+    playerData.height = PLAYER_SIZE * scaleX;
 
-    // 初回だけ地面に立たせる
+    playerData.x = rect.width * 0.15;
+
     if(!gameStarted){
-        playerY = groundY;
-    }
 
-    updatePlayer();
+    playerData.y = rect.height * GROUND_RATE;
+
+}
+
+    drawPlayer();
 
 }
 
 window.addEventListener("resize", resizeGame);
 
-resizeGame();
+// ======================================
+// プレイヤー描画
+// ======================================
 
-//==============================
-// プレイヤー表示更新
-//==============================
+function drawPlayer(){
 
-function updatePlayer(){
+    player.style.width = playerData.width + "px";
 
-    player.style.left = playerX + "px";
-    player.style.bottom = playerY + "px";
-    player.style.transform = "translateX(-50%)";
+    player.style.left = playerData.x + "px";
 
-}
-
-//==============================
-// ゲーム開始
-//==============================
-
-function startGame(){
-
-    if(gameStarted) return;
-
-    gameStarted = true;
-
-    message.style.display = "none";
+    player.style.bottom = playerData.y + "px";
 
 }
 
-//==============================
-// ジャンプ
-//==============================
-
-function jump(){
-
-    velocityY = jumpPower;
-
-}
-
-//==============================
-// メインループ
-//==============================
-
-function gameLoop(){
-
-    if(gameStarted){
-
-        velocityY += gravity;
-
-        playerY += velocityY;
-
-        if(playerY < groundY){
-
-            playerY = groundY;
-
-            velocityY = 0;
-
-        }
-
-        updatePlayer();
-
-    }
-
-    requestAnimationFrame(gameLoop);
-
-}
-
-gameLoop();
-
-//==============================
+// ======================================
 // アニメーション
-//==============================
+// ======================================
 
 setInterval(()=>{
 
@@ -152,19 +103,83 @@ setInterval(()=>{
 
     frame++;
 
-    if(frame>=frames.length){
+    if(frame>=frogImages.length){
 
         frame=0;
 
     }
 
-    player.src = frames[frame];
+    player.src = frogImages[frame];
 
-},200);
+},180);
 
-//==============================
+// ======================================
+// ゲーム開始
+// ======================================
+
+function startGame(){
+
+    if(gameStarted) return;
+
+    gameStarted = true;
+
+    
+
+    message.style.display = "none";
+
+}
+// ======================================
+// ジャンプ設定
+// ======================================
+
+const GRAVITY = 1.2;
+const JUMP_POWER = 22;
+function jump(){
+
+    if(!playerData.onGround){
+        return;
+    }
+
+    playerData.velocityY = JUMP_POWER;
+    playerData.onGround = false;
+
+}
+
+// ======================================
+// メインループ
+// ======================================
+function gameLoop(){
+
+    if(gameStarted){
+
+        playerData.velocityY -= GRAVITY;
+
+        playerData.y += playerData.velocityY;
+
+        const groundY = world.clientHeight * GROUND_RATE;
+
+        if(playerData.y <= groundY){
+
+            playerData.y = groundY;
+
+            playerData.velocityY = 0;
+
+            playerData.onGround = true;
+
+        }
+
+    }
+
+    drawPlayer();
+
+    requestAnimationFrame(gameLoop);
+
+}
+}
+
+// ======================================
 // タップ
-//==============================
+// ======================================
 
 document.addEventListener("pointerdown",()=>{
 
@@ -172,10 +187,15 @@ document.addEventListener("pointerdown",()=>{
 
         startGame();
 
-    }else{
-
-        jump();
+        return;
 
     }
 
+    jump();
+
 });
+// ======================================
+// 初期化
+// ======================================
+
+resizeGame();
