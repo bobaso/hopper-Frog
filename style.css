@@ -78,22 +78,13 @@ body{
 /* ---------- プレイヤー ---------- */
 
 #player{
-
     position:absolute;
 
-    left:15%;
-    bottom:15%;
+    left:14%;
+    bottom:14.8%;
 
-    width:14vw;
-    max-width:60px;
-    min-width:48px;
-
-    z-index:10;
-
-    user-select:none;
-    pointer-events:none;
-
-    image-rendering:auto;
+    width:13%;
+    height:auto;
 }
 
 /* ---------- 土管 ---------- */
