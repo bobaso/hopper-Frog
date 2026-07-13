@@ -67,9 +67,10 @@ body{
 
     overflow:hidden;
 
-    background:linear-gradient(
-    #8fd3ff,
-    #dff7ff);
+    background-image:url("back.png");
+    background-size:cover;
+    background-position:center bottom;
+    background-repeat:no-repeat;
 }
 
 /* ---------- 地面 ---------- */
