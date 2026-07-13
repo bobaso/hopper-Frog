@@ -50,7 +50,7 @@ let groundY;
 //==============================
 
 function resizeGame(){
-
+player.style.width = (worldWidth * 0.13) + "px";
     const worldRect = world.getBoundingClientRect();
 
     // ゲーム画面のサイズ
