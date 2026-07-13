@@ -57,25 +57,20 @@ let gameStarted = false;
 
 function resizeGame(){
 
-    const rect = world.getBoundingClientRect();
+  playerData.width = PLAYER_SIZE;
+playerData.height = PLAYER_SIZE;
 
-    const scaleX = rect.width / DESIGN_WIDTH;
-    const scaleY = rect.height / DESIGN_HEIGHT;
+playerData.x = 160;
 
-    playerData.width = PLAYER_SIZE * scaleX;
-    playerData.height = PLAYER_SIZE * scaleX;
+if(!gameStarted){
 
-    playerData.x = rect.width * 0.15;
+    playerData.y = DESIGN_HEIGHT * GROUND_RATE;
 
-    if(!gameStarted){
-
-    playerData.y = rect.height * GROUND_RATE;
-
+}
 }
 
     drawPlayer();
 
-}
 
 window.addEventListener("resize", resizeGame);
 
@@ -90,6 +85,8 @@ function drawPlayer(){
     player.style.left = playerData.x + "px";
 
     player.style.bottom = playerData.y + "px";
+
+    player.style.transform = "translateX(-50%)";
 
 }
 
@@ -156,7 +153,7 @@ function gameLoop(){
 
         playerData.y += playerData.velocityY;
 
-        const groundY = world.clientHeight * GROUND_RATE;
+const groundY = DESIGN_HEIGHT * GROUND_RATE;
 
         if(playerData.y <= groundY){
 
@@ -223,3 +220,4 @@ function fitGame(){
 window.addEventListener("resize", fitGame);
 
 fitGame();
+gameLoop();
