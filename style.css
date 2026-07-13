@@ -1,3 +1,7 @@
+/* ==========================
+   リセット
+========================== */
+
 *{
     margin:0;
     padding:0;
@@ -11,30 +15,213 @@ body{
     height:100%;
     overflow:hidden;
 
-    font-family:sans-serif;
+    touch-action:none;
+    user-select:none;
 
     background:#222;
+
+    font-family:
+        "Arial",
+        "Helvetica",
+        sans-serif;
 }
 
 /* Safari対応 */
+
 body{
+
     height:100dvh;
+
 }
+
+/* ==========================
+   ゲーム全体
+========================== */
 
 #game{
 
     width:100%;
     height:100%;
 
-    display:flex;
-    flex-direction:column;
+}
+
+/* ==========================
+   ゲーム画面
+========================== */
+
+#world{
+
+    position:relative;
+
+    width:100%;
+    height:100%;
 
     overflow:hidden;
 
-    background:#fff;
+    background:#87CEEB;
+
 }
 
-/* ---------- スコア ---------- */
+/* ==========================
+   背景
+========================== */
+
+#background{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    pointer-events:none;
+
+    z-index:0;
+
+}
+
+/* ==========================
+   プレイヤー
+========================== */
+
+#player{
+
+    position:absolute;
+
+    z-index:20;
+
+    pointer-events:none;
+
+    -webkit-user-drag:none;
+
+}
+
+/* ==========================
+   障害物レイヤー
+========================== */
+
+#obstacles{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:15;
+
+}
+
+/* ==========================
+   スコア
+========================== */
+
+#score{
+
+    position:absolute;
+
+    top:20px;
+    left:20px;
+
+    z-index:100;
+
+    color:#fff;
+
+    font-size:42px;
+
+    font-weight:bold;
+
+    text-shadow:
+        3px 3px 0 #000,
+       -3px 3px 0 #000,
+        3px -3px 0 #000,
+       -3px -3px 0 #000;
+
+}
+
+/* ==========================
+   メッセージ
+========================== */
+
+#message{
+
+    position:absolute;
+
+    left:50%;
+    top:45%;
+
+    transform:translate(-50%,-50%);
+
+    z-index:100;
+
+    color:#fff;
+
+    font-size:36px;
+
+    font-weight:bold;
+
+    text-shadow:
+        3px 3px 0 #000,
+       -3px 3px 0 #000,
+        3px -3px 0 #000,
+       -3px -3px 0 #000;
+
+}
+
+/* ==========================
+   ゲームオーバー
+========================== */
+
+#gameOver{
+
+    position:absolute;
+
+    inset:0;
+
+    display:none;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+    background:rgba(0,0,0,.6);
+
+    z-index:200;
+
+    color:white;
+
+}
+
+#gameOver h1{
+
+    font-size:48px;
+
+}
+
+#finalScore{
+
+    font-size:32px;
+
+}
+
+#retryButton{
+
+    padding:15px 40px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+}/* ---------- スコア ---------- */
 
 #score{
 
