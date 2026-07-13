@@ -175,7 +175,7 @@ function gameLoop(){
     requestAnimationFrame(gameLoop);
 
 }
-}
+
 
 // ======================================
 // タップ
