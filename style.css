@@ -81,10 +81,6 @@ body{
 
     position:absolute;
 
-    width:14vw;
-    max-width:60px;
-    min-width:48px;
-
     z-index:10;
 
     user-select:none;
@@ -96,10 +92,6 @@ body{
 .pipe{
 
     position:absolute;
-
-    right:18%;
-
-    bottom:15%;
 
     width:8%;
 
