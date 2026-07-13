@@ -83,8 +83,8 @@ resizeGame();
 function updatePlayer(){
 
     player.style.left = playerX + "px";
-
     player.style.bottom = playerY + "px";
+    player.style.transform = "translateX(-50%)";
 
 }
 
