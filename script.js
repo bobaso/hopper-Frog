@@ -223,3 +223,63 @@ window.addEventListener("resize", fitGame);
 
 fitGame();
 gameLoop();
+
+
+// ======================================
+// 障害物
+// ======================================
+
+const obstacles = document.getElementById("obstacles");
+
+
+let obstacleList = [];
+
+
+// 障害物作成
+
+function createObstacle(type){
+
+
+    const obj = document.createElement("div");
+
+
+    obj.className = "obstacle " + type;
+
+
+    obj.textContent = type.toUpperCase();
+
+
+    obj.dataset.type = type;
+
+
+    obj.x = DESIGN_WIDTH;
+
+
+    obstacles.appendChild(obj);
+
+
+    obstacleList.push(obj);
+
+}
+
+
+// テスト生成
+
+createObstacle("small");
+
+createObstacle("medium");
+
+createObstacle("large");
+
+createObstacle("hole");
+
+
+// 初期位置
+
+obstacleList[0].style.left="800px";
+
+obstacleList[1].style.left="1200px";
+
+obstacleList[2].style.left="1700px";
+
+obstacleList[3].style.left="2300px";
