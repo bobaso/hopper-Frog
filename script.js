@@ -106,11 +106,20 @@ setInterval(()=>{
 
     if(!gameStarted) return;
 
+    // ジャンプ中
+    if(!playerData.onGround){
+
+        player.src = "frog3.png";
+        return;
+
+    }
+
+    // 地上では歩行アニメーション
     frame++;
 
-    if(frame>=frogImages.length){
+    if(frame >= frogImages.length){
 
-        frame=0;
+        frame = 0;
 
     }
 
