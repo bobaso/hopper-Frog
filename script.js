@@ -213,6 +213,17 @@ function moveObstacles(){
 
         obstacle.style.left = obstacle.x + "px";
 
+      if(
+    !obstacle.scored &&
+    obstacle.x + obstacle.offsetWidth < playerData.x
+){
+
+    obstacle.scored = true;
+
+    obstacleScore += 100;
+
+}
+
         if(obstacle.x < -300){
 
             obstacle.remove();
@@ -396,16 +407,6 @@ obj.textContent = type.toUpperCase();
     obstacles.appendChild(obj);
     obj.scored = false;
     obstacleList.push(obj);
-    if(
-    !obstacle.scored &&
-    obstacle.x + obstacle.offsetWidth < playerData.x
-){
-
-    obstacle.scored = true;
-
-    obstacleScore += 100;
-
-}
 
 
 }
