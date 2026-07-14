@@ -154,14 +154,11 @@ function gameLoop(){
 
         moveObstacles();
 
-
-    playerData.velocityY -= GRAVITY;
-        
         playerData.velocityY -= GRAVITY;
 
         playerData.y += playerData.velocityY;
 
-const groundY = DESIGN_HEIGHT * GROUND_RATE;
+        const groundY = DESIGN_HEIGHT * GROUND_RATE;
 
         if(playerData.y <= groundY){
 
@@ -179,32 +176,24 @@ const groundY = DESIGN_HEIGHT * GROUND_RATE;
 
     requestAnimationFrame(gameLoop);
 
+}
+
 function moveObstacles(){
 
     obstacleList.forEach((obstacle)=>{
 
+        obstacle.x -= 8;
 
-        let x = Number(obstacle.style.left.replace("px",""));
+        obstacle.style.left = obstacle.x + "px";
 
-
-        x -= 8;
-
-
-        obstacle.style.left = x + "px";
-
-
-        // 画面外削除
-
-        if(x < -300){
+        if(obstacle.x < -300){
 
             obstacle.remove();
 
         }
 
-
     });
 
-}
 }
 
 
@@ -270,24 +259,37 @@ let obstacleList = [];
 
 function createObstacle(type){
 
-
     const obj = document.createElement("div");
-
 
     obj.className = "obstacle " + type;
 
-
     obj.textContent = type.toUpperCase();
 
-
-    obj.dataset.type = type;
-
-
+    // ゲーム内座標
     obj.x = DESIGN_WIDTH;
 
+    // 地面位置
+    obj.y = DESIGN_HEIGHT * GROUND_RATE;
+
+    obj.style.left = obj.x + "px";
+
+    switch(type){
+
+        case "small":
+        case "medium":
+        case "large":
+            // 地面の上に置く
+            obj.style.bottom = obj.y + "px";
+            break;
+
+        case "hole":
+            // 穴は地面に配置
+            obj.style.bottom = "0px";
+            break;
+
+    }
 
     obstacles.appendChild(obj);
-
 
     obstacleList.push(obj);
 
@@ -306,11 +308,11 @@ createObstacle("hole");
 
 
 // 初期位置
+obstacleList[0].x = 800;
+obstacleList[1].x = 1200;
+obstacleList[2].x = 1700;
+obstacleList[3].x = 2300;
 
-obstacleList[0].style.left="800px";
-
-obstacleList[1].style.left="1200px";
-
-obstacleList[2].style.left="1700px";
-
-obstacleList[3].style.left="2300px";
+obstacleList.forEach(obstacle => {
+    obstacle.style.left = obstacle.x + "px";
+});
