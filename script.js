@@ -54,6 +54,7 @@ jumpCount: 0
 // ======================================
 
 let gameStarted = false;
+let scrollSpeed = 8;
 
 
 // ======================================
@@ -223,22 +224,23 @@ function moveObstacles(){
 
     obstacleList = obstacleList.filter((obstacle)=>{
 
-        // スクロール速度
-        let scrollSpeed = 8;
+        // 障害物を移動
+        obstacle.x -= scrollSpeed;
 
         obstacle.style.left = obstacle.x + "px";
 
-      if(
-    !obstacle.scored &&
-    obstacle.x + obstacle.offsetWidth < playerData.x
-){
+        // 通過で加点
+        if(
+            !obstacle.scored &&
+            obstacle.x + obstacle.offsetWidth < playerData.x
+        ){
 
-    obstacle.scored = true;
+            obstacle.scored = true;
+            obstacleScore += 100;
 
-    obstacleScore += 100;
+        }
 
-}
-
+        // 画面外なら削除
         if(obstacle.x < -300){
 
             obstacle.remove();
