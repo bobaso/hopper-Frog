@@ -9,8 +9,7 @@ const message = document.getElementById("message");
 const retryButton =
     document.getElementById("retryButton");
 retryButton.addEventListener("click", retryGame);
-const gameOverScreen =
-    document.getElementById("gameOver");
+
 // ======================================
 // ゲーム設定
 // ======================================
@@ -137,6 +136,7 @@ function startGame(){
 
     if(gameStarted) return;
 
+    gameOverFlag = false;
     gameStarted = true;
 
     startTime = Date.now();
@@ -331,22 +331,15 @@ function checkHole(obstacle){
 // ======================================
 // タップ
 // ======================================
-document.addEventListener("pointerdown", (e)=>{
+document.addEventListener("pointerdown", ()=>{
 
-    // GAME OVER中はリトライボタン以外は無効
-    if(gameOverScreen.style.display === "flex"){
-
-        if(e.target !== retryButton){
-            return;
-        }
-
+    if(gameOverFlag){
+        return;
     }
 
     if(!gameStarted){
-
         startGame();
         return;
-
     }
 
     jump();
