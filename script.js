@@ -283,13 +283,16 @@ function checkHole(obstacle){
         obstacle.x + obstacle.offsetWidth;
 
     // 穴の上にいるか
-    const overHole =
+function checkHole(obstacle){
 
-        playerRight > holeLeft &&
-        playerLeft < holeRight;
+    const holeLeft = obstacle.x;
+    const holeRight = obstacle.x + obstacle.offsetWidth;
+
+    const playerCenter = playerData.x;
 
     if(
-        overHole &&
+        playerCenter > holeLeft + 20 &&
+        playerCenter < holeRight - 20 &&
         playerData.onGround
     ){
 
@@ -399,7 +402,6 @@ obj.textContent = type.toUpperCase();
 
 
 }
-createObstacle("small");
 
 // ランダム生成する障害物の種類
 const obstacleTypes = [
@@ -442,14 +444,15 @@ function retryGame(){
     obstacleList = [];
 
     // プレイヤー初期化
-    playerData.y = DESIGN_HEIGHT * GROUND_RATE;
-    playerData.velocityY = 0;
-    playerData.jumpCount = 0;
-    playerData.onGround = true;
+playerData.y = DESIGN_HEIGHT * GROUND_RATE;
+playerData.velocityY = 0;
+playerData.jumpCount = 0;
+playerData.onGround = true;
 
-    // メッセージ表示
-    message.style.display = "block";
+drawPlayer();
+ // メッセージ
+message.style.display = "block";
 
-    gameStarted = false;
+gameStarted = false;
 
 }
