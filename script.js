@@ -141,7 +141,7 @@ function startGame(){
 
     obstacleScore = 0;
     timeScore = 0;
-
+    scrollSpeed = 8;
     message.style.display = "none";
 
 }
