@@ -298,17 +298,6 @@ function createObstacle(type){
 }
 
 
-// テスト生成
-
-createObstacle("small");
-
-createObstacle("medium");
-
-createObstacle("large");
-
-createObstacle("hole");
-
-
 // 初期位置
 obstacleList[0].x = 800;
 obstacleList[1].x = 1200;
