@@ -32,7 +32,7 @@ const frogImages = [
 let frame = 0;
 
 const playerData = {
-
+    
     x: 0,
     y: 0,
 
@@ -42,6 +42,7 @@ const playerData = {
     velocityY: 0,
 
     onGround: true
+    jumpCount: 0
 
 };
 
@@ -133,15 +134,18 @@ function startGame(){
 // ======================================
 
 const GRAVITY = 1.2;
-const JUMP_POWER = 22;
+const JUMP_POWER = 24;
 function jump(){
 
-    if(!playerData.onGround){
+    if(playerData.jumpCount >= 2){
         return;
     }
 
     playerData.velocityY = JUMP_POWER;
-    playerData.onGround = false;
+　　　playerData.onGround = true;
+　　　playerData.jumpCount = 0;
+
+    playerData.jumpCount++;
 
 }
 
@@ -171,10 +175,15 @@ function gameLoop(){
         }
 
     }
+drawPlayer();
 
-    drawPlayer();
+if(gameStarted){
 
-    requestAnimationFrame(gameLoop);
+    checkCollision();
+
+}
+
+requestAnimationFrame(gameLoop);
 
 }
 function moveObstacles(){
@@ -197,7 +206,53 @@ function moveObstacles(){
     });
 
 }
+function checkCollision(){
 
+    const playerLeft =
+        playerData.x - playerData.width / 2;
+
+    const playerRight =
+        playerLeft + playerData.width;
+
+    const playerBottom =
+        playerData.y;
+
+    const playerTop =
+        playerBottom + playerData.height;
+
+    obstacleList.forEach((obstacle)=>{
+
+        if(obstacle.dataset.type === "hole"){
+            return;
+        }
+
+        const obstacleLeft = obstacle.x;
+
+        const obstacleRight =
+            obstacle.x + obstacle.offsetWidth;
+
+        const obstacleBottom =
+            DESIGN_HEIGHT * GROUND_RATE;
+
+        const obstacleTop =
+            obstacleBottom + obstacle.offsetHeight;
+
+        const hit =
+
+            playerRight > obstacleLeft &&
+            playerLeft < obstacleRight &&
+            playerTop > obstacleBottom &&
+            playerBottom < obstacleTop;
+
+        if(hit){
+
+            gameOver();
+
+        }
+
+    });
+
+}
 
 // ======================================
 // タップ
@@ -328,3 +383,12 @@ setInterval(()=>{
     createObstacle(type);
 
 }, 2000);
+
+//ゲームオーバー
+function gameOver(){
+
+    gameStarted = false;
+
+    document.getElementById("gameOver").style.display = "flex";
+
+}
