@@ -40,9 +40,10 @@ const playerData = {
     height: PLAYER_SIZE,
 
     velocityY: 0,
+    
+onGround: true,
 
-    onGround: true
-    jumpCount: 0
+jumpCount: 0
 
 };
 
@@ -51,6 +52,7 @@ const playerData = {
 // ======================================
 
 let gameStarted = false;
+
 
 // ======================================
 // リサイズ
@@ -142,8 +144,8 @@ function jump(){
     }
 
     playerData.velocityY = JUMP_POWER;
-　　　playerData.onGround = true;
-　　　playerData.jumpCount = 0;
+
+    playerData.onGround = false;
 
     playerData.jumpCount++;
 
@@ -171,6 +173,7 @@ function gameLoop(){
             playerData.velocityY = 0;
 
             playerData.onGround = true;
+            playerData.jumpCount = 0;
 
         }
 
@@ -317,10 +320,11 @@ let obstacleList = [];
 function createObstacle(type){
 
     const obj = document.createElement("div");
-
     obj.className = "obstacle " + type;
 
-    obj.textContent = type.toUpperCase();
+obj.dataset.type = type;
+
+obj.textContent = type.toUpperCase();
 
     // ゲーム内座標
   obj.x = DESIGN_WIDTH + 200;
@@ -350,18 +354,9 @@ function createObstacle(type){
 
     obstacleList.push(obj);
 
+
 }
-
-
-// 初期位置
-obstacleList[0].x = 800;
-obstacleList[1].x = 1200;
-obstacleList[2].x = 1700;
-obstacleList[3].x = 2300;
-
-obstacleList.forEach(obstacle => {
-    obstacle.style.left = obstacle.x + "px";
-});
+createObstacle("small");
 
 // ランダム生成する障害物の種類
 const obstacleTypes = [
