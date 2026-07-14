@@ -145,6 +145,11 @@ function startGame(){
     timeScore = 0;
     scrollSpeed = 8;
     message.style.display = "none";
+    createObstacle(
+    obstacleTypes[
+        Math.floor(Math.random() * obstacleTypes.length)
+    ]
+);
 
 }
 // ======================================
