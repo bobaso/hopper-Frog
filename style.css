@@ -85,24 +85,7 @@ body{
     pointer-events:none;
 
 }
-/* ==========================
-   障害物
-========================== */
 
-.obstacle{
-
-    position:absolute;
-
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
-
-    border:none;
-
-    color:transparent;
-    font-size:0;
-
-}
 
 /* ==========================
    プレイヤー
@@ -227,7 +210,7 @@ body{
     cursor:pointer;
 }
 /* ==========================
-   障害物テスト表示
+   障害物表示
 ========================== */
 
 
