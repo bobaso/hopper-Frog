@@ -177,10 +177,9 @@ function gameLoop(){
     requestAnimationFrame(gameLoop);
 
 }
-
 function moveObstacles(){
 
-    obstacleList.forEach((obstacle)=>{
+    obstacleList = obstacleList.filter((obstacle)=>{
 
         obstacle.x -= 8;
 
@@ -189,8 +188,11 @@ function moveObstacles(){
         if(obstacle.x < -300){
 
             obstacle.remove();
+            return false;
 
         }
+
+        return true;
 
     });
 
@@ -316,3 +318,24 @@ obstacleList[3].x = 2300;
 obstacleList.forEach(obstacle => {
     obstacle.style.left = obstacle.x + "px";
 });
+
+// ランダム生成する障害物の種類
+const obstacleTypes = [
+    "small",
+    "medium",
+    "large",
+    "hole"
+];
+
+// 一定時間ごとに障害物を生成
+setInterval(()=>{
+
+    if(!gameStarted) return;
+
+    const type = obstacleTypes[
+        Math.floor(Math.random() * obstacleTypes.length)
+    ];
+
+    createObstacle(type);
+
+}, 2000);
