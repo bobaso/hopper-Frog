@@ -345,7 +345,6 @@ obj.textContent = type.toUpperCase();
 
         case "small":
         case "medium":
-        case "large":
             // 地面の上に置く
             obj.style.bottom = obj.y + "px";
             break;
@@ -369,7 +368,6 @@ createObstacle("small");
 const obstacleTypes = [
     "small",
     "medium",
-    "large",
     "hole"
 ];
 
