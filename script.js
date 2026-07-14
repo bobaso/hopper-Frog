@@ -218,7 +218,8 @@ function moveObstacles(){
 
     obstacleList = obstacleList.filter((obstacle)=>{
 
-        obstacle.x -= 8;
+        // スクロール速度
+        let scrollSpeed = 8;
 
         obstacle.style.left = obstacle.x + "px";
 
