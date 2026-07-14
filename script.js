@@ -270,21 +270,6 @@ const obstacleTop =
 // 穴の設定
 function checkHole(obstacle){
 
-    const playerLeft =
-        playerData.x - playerData.width / 2;
-
-    const playerRight =
-        playerData.x + playerData.width / 2;
-
-    const holeLeft =
-        obstacle.x;
-
-    const holeRight =
-        obstacle.x + obstacle.offsetWidth;
-
-    // 穴の上にいるか
-function checkHole(obstacle){
-
     const holeLeft = obstacle.x;
     const holeRight = obstacle.x + obstacle.offsetWidth;
 
@@ -295,9 +280,7 @@ function checkHole(obstacle){
         playerCenter < holeRight - 20 &&
         playerData.onGround
     ){
-
         gameOver();
-
     }
 
 }
