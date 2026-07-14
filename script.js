@@ -411,17 +411,18 @@ const obstacleTypes = [
 ];
 
 // 一定時間ごとに障害物を生成
-setInterval(()=>{
+const obstacleInterval = setInterval(()=>{
 
     if(!gameStarted) return;
 
-    const type = obstacleTypes[
-        Math.floor(Math.random() * obstacleTypes.length)
-    ];
+    const type =
+        obstacleTypes[
+            Math.floor(Math.random()*obstacleTypes.length)
+        ];
 
     createObstacle(type);
 
-}, 2000);
+},2000);
 
 // ======================================
 // ゲームオーバー
