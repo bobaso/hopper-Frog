@@ -152,6 +152,11 @@ function gameLoop(){
 
     if(gameStarted){
 
+        moveObstacles();
+
+
+    playerData.velocityY -= GRAVITY;
+        
         playerData.velocityY -= GRAVITY;
 
         playerData.y += playerData.velocityY;
@@ -174,6 +179,32 @@ const groundY = DESIGN_HEIGHT * GROUND_RATE;
 
     requestAnimationFrame(gameLoop);
 
+function moveObstacles(){
+
+    obstacleList.forEach((obstacle)=>{
+
+
+        let x = Number(obstacle.style.left.replace("px",""));
+
+
+        x -= 8;
+
+
+        obstacle.style.left = x + "px";
+
+
+        // 画面外削除
+
+        if(x < -300){
+
+            obstacle.remove();
+
+        }
+
+
+    });
+
+}
 }
 
 
