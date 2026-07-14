@@ -262,13 +262,13 @@ body{
 .hole{
 
     width:220px;
-
     height:40px;
 
-    background:#111;
+    background-image:url("hole.png");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:100% 100%;
 
-    border:5px solid cyan;
-
-    color:cyan;
+    border:none;
 
 }
