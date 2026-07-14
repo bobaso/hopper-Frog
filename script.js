@@ -394,8 +394,18 @@ obj.textContent = type.toUpperCase();
     }
 
     obstacles.appendChild(obj);
-
+    obj.scored = false;
     obstacleList.push(obj);
+    if(
+    !obstacle.scored &&
+    obstacle.x + obstacle.offsetWidth < playerData.x
+){
+
+    obstacle.scored = true;
+
+    obstacleScore += 100;
+
+}
 
 
 }
@@ -430,6 +440,9 @@ function gameOver(){
 
     document.getElementById("gameOver").style.display = "flex";
 
+    document.getElementById("finalScore").textContent =
+        "SCORE : " + (obstacleScore + timeScore);
+
 }
 
 function retryGame(){
@@ -452,5 +465,8 @@ drawPlayer();
 message.style.display = "block";
 
 gameStarted = false;
+obstacleScore = 0;
+timeScore = 0;
 
+score.textContent = "0";
 }
