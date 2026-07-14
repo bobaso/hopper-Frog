@@ -57,19 +57,20 @@ let gameStarted = false;
 
 function resizeGame(){
 
-  playerData.width = PLAYER_SIZE;
-playerData.height = PLAYER_SIZE;
+    playerData.width = PLAYER_SIZE;
+    playerData.height = PLAYER_SIZE;
 
-playerData.x = 160;
+    playerData.x = 245;
 
-if(!gameStarted){
+    if(!gameStarted){
 
-    playerData.y = DESIGN_HEIGHT * GROUND_RATE;
+        playerData.y = DESIGN_HEIGHT * GROUND_RATE;
 
-}
-}
+    }
 
     drawPlayer();
+
+}
 
 
 window.addEventListener("resize", resizeGame);
