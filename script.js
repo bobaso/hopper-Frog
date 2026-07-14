@@ -285,19 +285,21 @@ const playerTop =
 
 }
 
-        const margin = 20;
+   const marginX = 20;   // 左右
+const marginTop = 20; // 上
+const marginBottom = 20; // 下
 
 const obstacleLeft =
-    obstacle.x + margin;
+    obstacle.x + marginX;
 
 const obstacleRight =
-    obstacle.x + obstacle.offsetWidth - margin;
+    obstacle.x + obstacle.offsetWidth - marginX;
 
 const obstacleBottom =
-    DESIGN_HEIGHT * GROUND_RATE + margin;
+    DESIGN_HEIGHT * GROUND_RATE + marginBottom;
 
 const obstacleTop =
-    obstacleBottom + obstacle.offsetHeight - margin * 2;
+    obstacleBottom + obstacle.offsetHeight - marginTop - marginBottom;
 
         const hit =
 
