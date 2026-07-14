@@ -285,7 +285,7 @@ const playerTop =
 
 }
 
-   const marginX = 20;   // 左右
+   const marginX = 30;   // 左右
 const marginTop = 20; // 上
 const marginBottom = 20; // 下
 
