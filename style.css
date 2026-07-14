@@ -131,19 +131,17 @@ body{
 
     z-index:100;
 
-    color:white;
+    color:#fff;
 
     font-size:90px;
 
     font-weight:bold;
 
-    text-shadow:
-        6px 6px 0 #000,
-       -6px 6px 0 #000,
-        6px -6px 0 #000,
-       -6px -6px 0 #000;
-}
+    -webkit-text-stroke:6px #000;
 
+    paint-order:stroke fill;
+
+}
 /* ==========================
    メッセージ
 ========================== */
@@ -159,7 +157,7 @@ body{
 
     z-index:100;
 
-    color:white;
+    color:#fff;
 
     font-size:72px;
 
@@ -167,11 +165,10 @@ body{
 
     text-align:center;
 
-    text-shadow:
-        6px 6px 0 #000,
-       -6px 6px 0 #000,
-        6px -6px 0 #000,
-       -6px -6px 0 #000;
+    -webkit-text-stroke:5px #000;
+
+    paint-order:stroke fill;
+
 }
 
 /* ==========================
