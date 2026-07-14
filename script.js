@@ -83,6 +83,8 @@ function drawPlayer(){
 
     player.style.width = playerData.width + "px";
 
+    player.style.height = playerData.height + "px";
+
     player.style.left = playerData.x + "px";
 
     player.style.bottom = playerData.y + "px";
@@ -206,7 +208,7 @@ function fitGame(){
 
     const game = document.getElementById("game");
 
-    const scale = Math.min(
+    const scale = Math.max(
 
         window.innerWidth / 1080,
 
