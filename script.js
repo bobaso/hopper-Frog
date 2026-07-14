@@ -199,6 +199,11 @@ function gameLoop(){
 
         }
 timeScore = Math.floor((Date.now() - startTime) / 100);
+        const elapsedSeconds =
+    Math.floor((Date.now() - startTime) / 1000);
+
+// 15秒ごとに速度アップ
+scrollSpeed = 8 + Math.floor(elapsedSeconds / 15) * 0.5;
 
 score.textContent =
     obstacleScore + timeScore;
