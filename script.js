@@ -386,8 +386,10 @@ obj.textContent = type.toUpperCase();
 
         case "hole":
             // 穴は地面に配置
-            obj.style.bottom = "0px";
-            break;
+            obj.style.bottom =
+        (obj.y - 20) + "px";
+
+    break;
 
     }
 
