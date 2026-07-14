@@ -223,3 +223,83 @@ body{
 
     cursor:pointer;
 }
+/* ==========================
+   障害物テスト表示
+========================== */
+
+
+.obstacle{
+
+    position:absolute;
+
+    bottom:0;
+
+    background:#ff4444;
+
+    color:white;
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    border:5px solid white;
+
+}
+
+
+/* 小 */
+
+.small{
+
+    width:100px;
+
+    height:120px;
+
+}
+
+
+/* 中 */
+
+.medium{
+
+    width:140px;
+
+    height:250px;
+
+}
+
+
+/* 大 */
+
+.large{
+
+    width:180px;
+
+    height:400px;
+
+}
+
+
+/* 落とし穴 */
+
+.hole{
+
+    width:220px;
+
+    height:40px;
+
+    background:#111;
+
+    border:5px solid cyan;
+
+    color:cyan;
+
+}
