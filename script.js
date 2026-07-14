@@ -159,7 +159,7 @@ let startTime = 0;
 // ======================================
 
 const GRAVITY = 1.2;
-const JUMP_POWER = 22;
+const JUMP_POWER = 23;
 function jump(){
 
     if(playerData.jumpCount >= 2){
