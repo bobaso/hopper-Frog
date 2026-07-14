@@ -138,7 +138,7 @@ function startGame(){
 // ======================================
 
 const GRAVITY = 1.2;
-const JUMP_POWER = 24;
+const JUMP_POWER = 26;
 function jump(){
 
     if(playerData.jumpCount >= 2){
