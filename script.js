@@ -128,11 +128,22 @@ function startGame(){
 
     gameStarted = true;
 
-    
+    startTime = Date.now();
+
+    obstacleScore = 0;
+    timeScore = 0;
 
     message.style.display = "none";
 
 }
+// ======================================
+// スコア
+// ======================================
+
+let obstacleScore = 0;
+let timeScore = 0;
+
+let startTime = 0;
 // ======================================
 // ジャンプ設定
 // ======================================
@@ -178,7 +189,10 @@ function gameLoop(){
             playerData.jumpCount = 0;
 
         }
+timeScore = Math.floor((Date.now() - startTime) / 100);
 
+score.textContent =
+    obstacleScore + timeScore;
     }
 drawPlayer();
 
