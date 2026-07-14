@@ -8,7 +8,7 @@ const score = document.getElementById("score");
 const message = document.getElementById("message");
 const retryButton =
     document.getElementById("retryButton");
-
+retryButton.addEventListener("click", retryGame);
 // ======================================
 // ゲーム設定
 // ======================================
@@ -233,16 +233,19 @@ const playerTop =
             return;
         }
 
-        const obstacleLeft = obstacle.x;
+        const margin = 20;
 
-        const obstacleRight =
-            obstacle.x + obstacle.offsetWidth;
+const obstacleLeft =
+    obstacle.x + margin;
 
-        const obstacleBottom =
-            DESIGN_HEIGHT * GROUND_RATE;
+const obstacleRight =
+    obstacle.x + obstacle.offsetWidth - margin;
 
-        const obstacleTop =
-            obstacleBottom + obstacle.offsetHeight;
+const obstacleBottom =
+    DESIGN_HEIGHT * GROUND_RATE + margin;
+
+const obstacleTop =
+    obstacleBottom + obstacle.offsetHeight - margin * 2;
 
         const hit =
 
@@ -393,6 +396,25 @@ function gameOver(){
     document.getElementById("gameOver").style.display = "flex";
 
 }
-// リトライボタン
-const retryButton =
-    document.getElementById("retryButton");
+
+function retryGame(){
+
+    // GAME OVERを閉じる
+    document.getElementById("gameOver").style.display = "none";
+
+    // 障害物を全部消す
+    obstacleList.forEach(obstacle => obstacle.remove());
+    obstacleList = [];
+
+    // プレイヤー初期化
+    playerData.y = DESIGN_HEIGHT * GROUND_RATE;
+    playerData.velocityY = 0;
+    playerData.jumpCount = 0;
+    playerData.onGround = true;
+
+    // メッセージ表示
+    message.style.display = "block";
+
+    gameStarted = false;
+
+}
