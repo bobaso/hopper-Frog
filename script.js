@@ -9,6 +9,8 @@ const message = document.getElementById("message");
 const retryButton =
     document.getElementById("retryButton");
 retryButton.addEventListener("click", retryGame);
+const gameOverScreen =
+    document.getElementById("gameOver");
 // ======================================
 // ゲーム設定
 // ======================================
@@ -55,8 +57,7 @@ jumpCount: 0
 
 let gameStarted = false;
 let scrollSpeed = 8;
-
-
+let gameOverFlag = false;
 // ======================================
 // リサイズ
 // ======================================
@@ -330,13 +331,20 @@ function checkHole(obstacle){
 // ======================================
 // タップ
 // ======================================
+document.addEventListener("pointerdown", (e)=>{
 
-document.addEventListener("pointerdown",()=>{
+    // GAME OVER中はリトライボタン以外は無効
+    if(gameOverScreen.style.display === "flex"){
+
+        if(e.target !== retryButton){
+            return;
+        }
+
+    }
 
     if(!gameStarted){
 
         startGame();
-
         return;
 
     }
@@ -455,6 +463,7 @@ const obstacleInterval = setInterval(()=>{
 function gameOver(){
 
     gameStarted = false;
+    gameOverFlag = true;
 
     document.getElementById("gameOver").style.display = "flex";
 
@@ -483,6 +492,7 @@ drawPlayer();
 message.style.display = "block";
 
 gameStarted = false;
+gameOverFlag = false;
 obstacleScore = 0;
 timeScore = 0;
 
