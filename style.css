@@ -89,13 +89,19 @@ body{
    障害物
 ========================== */
 
-#obstacles{
+.obstacle{
 
     position:absolute;
 
-    inset:0;
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
 
-    z-index:15;
+    border:none;
+
+    color:transparent;
+    font-size:0;
+
 }
 
 /* ==========================
@@ -229,34 +235,29 @@ body{
 
     position:absolute;
 
-    background:#ff4444;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:100% 100%;
 
-    color:white;
+    background-color:transparent;
 
-    font-size:30px;
+    border:none;
 
-    font-weight:bold;
+    display:block;
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    border:5px solid white;
+    color:transparent;
+    font-size:0;
 
 }
 
 
 /* 小 */
-
 .small{
 
     width:100px;
-
     height:120px;
+
+    background-image:url("smallObstacle.png");
 
 }
 
@@ -266,19 +267,9 @@ body{
 .medium{
 
     width:140px;
-
     height:250px;
 
-}
-
-
-/* 大 */
-
-.large{
-
-    width:180px;
-
-    height:400px;
+    background-image:url("mediumObstacle.png");
 
 }
 
