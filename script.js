@@ -6,6 +6,8 @@ const world = document.getElementById("world");
 const player = document.getElementById("player");
 const score = document.getElementById("score");
 const message = document.getElementById("message");
+const retryButton =
+    document.getElementById("retryButton");
 
 // ======================================
 // ゲーム設定
@@ -211,17 +213,19 @@ function moveObstacles(){
 }
 function checkCollision(){
 
-    const playerLeft =
-        playerData.x - playerData.width / 2;
+const hitMargin = 25;
 
-    const playerRight =
-        playerLeft + playerData.width;
+const playerLeft =
+    playerData.x - playerData.width / 2 + hitMargin;
 
-    const playerBottom =
-        playerData.y;
+const playerRight =
+    playerData.x + playerData.width / 2 - hitMargin;
 
-    const playerTop =
-        playerBottom + playerData.height;
+const playerBottom =
+    playerData.y + hitMargin;
+
+const playerTop =
+    playerData.y + playerData.height - hitMargin;
 
     obstacleList.forEach((obstacle)=>{
 
@@ -379,7 +383,9 @@ setInterval(()=>{
 
 }, 2000);
 
-//ゲームオーバー
+// ======================================
+// ゲームオーバー
+// ======================================
 function gameOver(){
 
     gameStarted = false;
@@ -387,3 +393,6 @@ function gameOver(){
     document.getElementById("gameOver").style.display = "flex";
 
 }
+// リトライボタン
+const retryButton =
+    document.getElementById("retryButton");
