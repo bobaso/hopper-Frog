@@ -203,16 +203,15 @@ resizeGame();
 // ==============================
 // ゲーム全体を画面サイズに合わせる
 // ==============================
-
 function fitGame(){
 
     const game = document.getElementById("game");
 
-    const scale = Math.max(
+    const scale = Math.min(
 
-        window.innerWidth / 1080,
+        window.innerWidth / DESIGN_WIDTH,
 
-        window.innerHeight / 1920
+        window.innerHeight / DESIGN_HEIGHT
 
     );
 
