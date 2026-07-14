@@ -229,9 +229,13 @@ const playerTop =
 
     obstacleList.forEach((obstacle)=>{
 
-        if(obstacle.dataset.type === "hole"){
-            return;
-        }
+ if(obstacle.dataset.type === "hole"){
+
+    checkHole(obstacle);
+
+    return;
+
+}
 
         const margin = 20;
 
@@ -261,6 +265,37 @@ const obstacleTop =
         }
 
     });
+
+}
+// 穴の設定
+function checkHole(obstacle){
+
+    const playerLeft =
+        playerData.x - playerData.width / 2;
+
+    const playerRight =
+        playerData.x + playerData.width / 2;
+
+    const holeLeft =
+        obstacle.x;
+
+    const holeRight =
+        obstacle.x + obstacle.offsetWidth;
+
+    // 穴の上にいるか
+    const overHole =
+
+        playerRight > holeLeft &&
+        playerLeft < holeRight;
+
+    if(
+        overHole &&
+        playerData.onGround
+    ){
+
+        gameOver();
+
+    }
 
 }
 
