@@ -268,7 +268,7 @@ function createObstacle(type){
     obj.textContent = type.toUpperCase();
 
     // ゲーム内座標
-    obj.x = DESIGN_WIDTH;
+  obj.x = DESIGN_WIDTH + 200;
 
     // 地面位置
     obj.y = DESIGN_HEIGHT * GROUND_RATE;
