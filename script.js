@@ -144,13 +144,20 @@ function startGame(){
     obstacleScore = 0;
     timeScore = 0;
     scrollSpeed = 8;
-    message.style.display = "none";
-    createObstacle(
-    obstacleTypes[
-        Math.floor(Math.random() * obstacleTypes.length)
-    ]
-);
 
+    message.style.display = "none";
+
+    const type =
+        obstacleTypes[
+            Math.floor(Math.random() * obstacleTypes.length)
+        ];
+
+    createObstacle(type);
+
+    // 最初の障害物だけ少し右から出現
+    obstacleList[obstacleList.length - 1].x += 350;
+    clearTimeout(obstacleTimer);
+obstacleTimer = setTimeout(spawnObstacle, 2000);
 }
 // ======================================
 // スコア
@@ -444,18 +451,41 @@ const obstacleTypes = [
 ];
 
 // 一定時間ごとに障害物を生成
-const obstacleInterval = setInterval(()=>{
+let obstacleTimer;
+
+function spawnObstacle(){
 
     if(!gameStarted) return;
 
+    // 障害物生成
     const type =
         obstacleTypes[
-            Math.floor(Math.random()*obstacleTypes.length)
+            Math.floor(Math.random() * obstacleTypes.length)
         ];
 
     createObstacle(type);
 
-},2000);
+    // 経過時間
+    const elapsedSeconds =
+        Math.floor((Date.now() - startTime) / 1000);
+
+    // 15秒ごとに少しずつ短くする
+    let baseInterval =
+        2000 - Math.floor(elapsedSeconds / 15) * 150;
+
+    // 最低1秒まで
+    baseInterval = Math.max(baseInterval, 1000);
+
+    // 少しランダムにする（±250ms）
+    const nextTime =
+        baseInterval + (Math.random() * 500 - 250);
+
+    obstacleTimer = setTimeout(
+        spawnObstacle,
+        nextTime
+    );
+
+}
 
 // ======================================
 // ゲームオーバー
