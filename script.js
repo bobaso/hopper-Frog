@@ -9,8 +9,12 @@ const message = document.getElementById("message");
 const retryButton =
     document.getElementById("retryButton");
 retryButton.addEventListener("click", retryGame);
-const background =
-    document.getElementById("background");
+const background1 =
+    document.getElementById("background1");
+
+const background2 =
+    document.getElementById("background2");
+let currentBackground = 0;
 
 // ======================================
 // ゲーム設定
@@ -229,8 +233,13 @@ timeScore = Math.floor((Date.now() - startTime) / 100);
 // 15秒ごとに背景切替
 const bgIndex =
     Math.floor(elapsedSeconds / 15) % backgrounds.length;
+let lastBgIndex = 0;
+if(bgIndex !== lastBgIndex){
 
-background.src = backgrounds[bgIndex];
+    lastBgIndex = bgIndex;
+    changeBackground(bgIndex);
+
+}
 // 15秒ごとに速度アップ
 scrollSpeed = 8 + Math.floor(elapsedSeconds / 15) * 0.5;
 
@@ -366,6 +375,27 @@ const backgrounds = [
     "back2.png",
     "back3.png"
 ];
+function changeBackground(index){
+
+    if(currentBackground === 0){
+
+        background2.src = backgrounds[index];
+        background2.style.opacity = 1;
+        background1.style.opacity = 0;
+
+        currentBackground = 1;
+
+    }else{
+
+        background1.src = backgrounds[index];
+        background1.style.opacity = 1;
+        background2.style.opacity = 0;
+
+        currentBackground = 0;
+
+    }
+
+}
 // ======================================
 // タップ
 // ======================================
