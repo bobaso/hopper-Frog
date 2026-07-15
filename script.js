@@ -133,7 +133,15 @@ setInterval(()=>{
 // ======================================
 // ゲーム開始
 // ======================================
+function showStartScreen(show){
 
+    document.getElementById("startScreen").style.display =
+        show ? "flex" : "none";
+
+    background.style.opacity =
+        show ? "0.55" : "1";
+
+}
 function startGame(){
 
     if(gameStarted) return;
@@ -147,7 +155,7 @@ function startGame(){
     timeScore = 0;
     scrollSpeed = 8;
 
-    message.style.display = "none";
+    showStartScreen(false);
 
     const type =
         obstacleTypes[
@@ -560,8 +568,9 @@ playerData.jumpCount = 0;
 playerData.onGround = true;
 
 drawPlayer();
+    showStartScreen(true);
  // メッセージ
-message.style.display = "block";
+showStartScreen(true);
 
 gameStarted = false;
 gameOverFlag = false;
