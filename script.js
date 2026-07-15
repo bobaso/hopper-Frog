@@ -421,6 +421,29 @@ let obstacleList = [];
 function createObstacle(type){
 
     const obj = document.createElement("div");
+    // 小障害物
+if(type === "small"){
+
+    const images = [
+        "smallObstacle.png",
+        "smallObstacle2.png"
+    ];
+
+    obj.style.backgroundImage =
+        `url("${images[Math.floor(Math.random() * images.length)]}")`;
+}
+
+// 中障害物
+if(type === "medium"){
+
+    const images = [
+        "mediumObstacle.png",
+        "mediumObstacle2.png"
+    ];
+
+    obj.style.backgroundImage =
+        `url("${images[Math.floor(Math.random() * images.length)]}")`;
+}
     obj.className = "obstacle " + type;
 
 obj.dataset.type = type;
