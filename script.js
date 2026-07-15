@@ -495,6 +495,8 @@ function gameOver(){
     gameStarted = false;
     gameOverFlag = true;
 
+    clearTimeout(obstacleTimer);
+
     document.getElementById("gameOver").style.display = "flex";
 
     document.getElementById("finalScore").textContent =
