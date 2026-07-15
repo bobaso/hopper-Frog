@@ -217,7 +217,12 @@ function gameLoop(){
 timeScore = Math.floor((Date.now() - startTime) / 100);
         const elapsedSeconds =
     Math.floor((Date.now() - startTime) / 1000);
+        
+// 15秒ごとに背景切替
+const bgIndex =
+    Math.floor(elapsedSeconds / 15) % backgrounds.length;
 
+background.src = backgrounds[bgIndex];
 // 15秒ごとに速度アップ
 scrollSpeed = 8 + Math.floor(elapsedSeconds / 15) * 0.5;
 
