@@ -168,8 +168,9 @@ body{
     width:850px;
     max-width:80%;
 
-}
+    animation: blink 1.2s infinite;
 
+}
 /* ==========================
    GAME OVER
 ========================== */
@@ -276,5 +277,20 @@ body{
     background-size:100% 100%;
 
     border:none;
+
+}
+@keyframes blink{
+
+    0%{
+        opacity:1;
+    }
+
+    50%{
+        opacity:0;
+    }
+
+    100%{
+        opacity:1;
+    }
 
 }
