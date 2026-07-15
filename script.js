@@ -15,7 +15,7 @@ const background1 =
 const background2 =
     document.getElementById("background2");
 let currentBackground = 0;
-
+let lastBgIndex = 0;
 // ======================================
 // ゲーム設定
 // ======================================
@@ -141,8 +141,14 @@ function showStartScreen(show){
 
     document.getElementById("startScreen").style.display =
         show ? "flex" : "none";
+background1.src = "back.png";
+background2.src = "back2.png";
+
 background1.style.opacity = show ? "0.55" : "1";
 background2.style.opacity = "0";
+
+currentBackground = 0;
+lastBgIndex = 0;
 
 }
 function startGame(){
@@ -391,8 +397,6 @@ function changeBackground(index){
         background2.style.opacity = 0;
 
         currentBackground = 0;
-        let currentBackground = 0;
-let lastBgIndex = 0;
 
     }
 
