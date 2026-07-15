@@ -141,9 +141,8 @@ function showStartScreen(show){
 
     document.getElementById("startScreen").style.display =
         show ? "flex" : "none";
-
-    background.style.opacity =
-        show ? "0.55" : "1";
+background1.style.opacity = show ? "0.55" : "1";
+background2.style.opacity = "0";
 
 }
 function startGame(){
@@ -233,7 +232,7 @@ timeScore = Math.floor((Date.now() - startTime) / 100);
 // 15秒ごとに背景切替
 const bgIndex =
     Math.floor(elapsedSeconds / 15) % backgrounds.length;
-let lastBgIndex = 0;
+
 if(bgIndex !== lastBgIndex){
 
     lastBgIndex = bgIndex;
@@ -392,6 +391,8 @@ function changeBackground(index){
         background2.style.opacity = 0;
 
         currentBackground = 0;
+        let currentBackground = 0;
+let lastBgIndex = 0;
 
     }
 
