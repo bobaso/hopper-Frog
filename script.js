@@ -439,6 +439,19 @@ if(type === "small"){
 
     obj.style.backgroundImage =
         `url("${images[Math.floor(Math.random() * images.length)]}")`;
+
+}
+
+else if(type === "medium"){
+
+    const images = [
+        "mediumObstacle.png",
+        "mediumObstacle2.png"
+    ];
+
+    obj.style.backgroundImage =
+        `url("${images[Math.floor(Math.random() * images.length)]}")`;
+
 }
 
 // 中障害物
