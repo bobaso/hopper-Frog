@@ -9,6 +9,8 @@ const message = document.getElementById("message");
 const retryButton =
     document.getElementById("retryButton");
 retryButton.addEventListener("click", retryGame);
+const background =
+    document.getElementById("background");
 
 // ======================================
 // ゲーム設定
@@ -343,6 +345,15 @@ function checkHole(obstacle){
 }
 
 // ======================================
+// 背景
+// ======================================
+
+const backgrounds = [
+    "back.png",
+    "back2.png",
+    "back3.png"
+];
+// ======================================
 // タップ
 // ======================================
 document.addEventListener("pointerdown", ()=>{
@@ -486,6 +497,7 @@ function spawnObstacle(){
     );
 
 }
+
 
 // ======================================
 // ゲームオーバー
