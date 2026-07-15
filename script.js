@@ -275,7 +275,7 @@ function moveObstacles(){
 }
 function checkCollision(){
 
-const hitMargin = 20;
+const hitMargin = 35;
 
 const playerLeft =
     playerData.x - playerData.width / 2 + hitMargin;
@@ -299,9 +299,9 @@ const playerTop =
 
 }
 
-   const marginX = 40;   // 左右
+   const marginX = 45;   // 左右
 const marginTop = 30; // 上
-const marginBottom = 25; // 下
+const marginBottom = 30; // 下
 
 const obstacleLeft =
     obstacle.x + marginX;
