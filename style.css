@@ -235,12 +235,10 @@ body{
 
 
 /* 小 */
-.small{
+.medium{
 
-    width:100px;
-    height:120px;
-
-    background-image:url("smallObstacle.png");
+    width:140px;
+    height:250px;
 
 }
 
@@ -251,8 +249,6 @@ body{
 
     width:140px;
     height:250px;
-
-    background-image:url("mediumObstacle.png");
 
 }
 
