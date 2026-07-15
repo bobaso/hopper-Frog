@@ -501,36 +501,9 @@ const obstacleTypes = [
 let obstacleTimer;
 
 function spawnObstacle(){
+const type = "small";
 
-    if(!gameStarted) return;
-
-    // 障害物生成
-    const type =
-        obstacleTypes[
-            Math.floor(Math.random() * obstacleTypes.length)
-        ];
-
-    createObstacle(type);
-
-    // 経過時間
-    const elapsedSeconds =
-        Math.floor((Date.now() - startTime) / 1000);
-
-    // 15秒ごとに少しずつ短くする
-    let baseInterval =
-        2000 - Math.floor(elapsedSeconds / 15) * 150;
-
-    // 最低1秒まで
-    baseInterval = Math.max(baseInterval, 1000);
-
-    // 少しランダムにする（±250ms）
-    const nextTime =
-        baseInterval + (Math.random() * 500 - 250);
-
-    obstacleTimer = setTimeout(
-        spawnObstacle,
-        nextTime
-    );
+createObstacle(type);
 
 }
 
