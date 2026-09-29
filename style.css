@@ -393,19 +393,35 @@ body{
         transform:translateY(0);
     }
 
+    /* 1回目のジャンプ */
     15%{
-        transform:translateY(-45px);
+        transform:translateY(-35px);
     }
 
     30%{
         transform:translateY(0);
     }
 
-    45%{
-        transform:translateY(-30px);
+    /* 少し沈む */
+    37%{
+        transform:translateY(8px);
     }
 
-    60%{
+    /* 2回目の小さなジャンプ */
+    50%{
+        transform:translateY(-22px);
+    }
+
+    65%{
+        transform:translateY(0);
+    }
+
+    /* 着地後の小さな揺れ */
+    72%{
+        transform:translateY(5px);
+    }
+
+    82%{
         transform:translateY(0);
     }
 
