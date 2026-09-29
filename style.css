@@ -378,4 +378,39 @@ body{
 
     object-fit:contain;
 
+    animation: gameOverFrogJump 1.2s ease-out 1;
+
+}
+
+
+/* ==========================
+   GAME OVER カエル ジャンプ
+========================== */
+
+@keyframes gameOverFrogJump{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    15%{
+        transform:translateY(-45px);
+    }
+
+    30%{
+        transform:translateY(0);
+    }
+
+    45%{
+        transform:translateY(-30px);
+    }
+
+    60%{
+        transform:translateY(0);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
 }
