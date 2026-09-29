@@ -14,11 +14,6 @@ const background1 =
 
 const background2 =
     document.getElementById("background2");
-const howToPlayButton =
-    document.getElementById("howToPlayButton");
-
-const howToPlayScreen =
-    document.getElementById("howToPlayScreen");
 let currentBackground = 0;
 let lastBgIndex = 0;
 // ======================================
@@ -409,52 +404,21 @@ function changeBackground(index){
 // ======================================
 // タップ
 // ======================================
-document.addEventListener("pointerdown", (event)=>{
+document.addEventListener("pointerdown", ()=>{
 
     if(gameOverFlag){
         return;
     }
 
-    // HOW TO PLAY画面表示中
-    if(
-        howToPlayScreen.style.display === "block"
-    ){
-
-        howToPlayScreen.style.display = "none";
-
-        document.getElementById("startScreen").style.display = "flex";
-
-        return;
-
-    }
-
- // HOW TO PLAYボタンを押した
-if(
-    howToPlayButton &&
-    howToPlayButton.contains(event.target)
-){
-
-    howToPlayScreen.style.display = "block";
-
-    document.getElementById("startScreen").style.display = "none";
-
-    return;
-
-}
-
-    // スタート画面
     if(!gameStarted){
-
         startGame();
-
         return;
-
     }
 
-    // ゲーム中
     jump();
 
-});===================================
+});
+// ======================================
 // 初期化
 // ======================================
 
