@@ -402,12 +402,11 @@ body{
         transform:translateY(0);
     }
 
-    /* 少し沈む */
+
     37%{
         transform:translateY(8px);
     }
 
-    /* 2回目の小さなジャンプ */
     50%{
         transform:translateY(-22px);
     }
@@ -416,7 +415,7 @@ body{
         transform:translateY(0);
     }
 
-    /* 着地後の小さな揺れ */
+
     72%{
         transform:translateY(5px);
     }
