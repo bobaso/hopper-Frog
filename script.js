@@ -424,12 +424,19 @@ document.addEventListener("pointerdown", ()=>{
 
 const howToPlayButton =
     document.getElementById("howToPlayButton");
-
+const howToPlayScreen =
+    document.getElementById("howToPlayScreen");
 howToPlayButton.addEventListener("pointerdown", (event)=>{
 
     event.stopPropagation();
 
-    console.log("HOW TO PLAY button tapped");
+    howToPlayScreen.style.display = "block";
+
+});
+
+howToPlayScreen.addEventListener("pointerdown", ()=>{
+
+    howToPlayScreen.style.display = "none";
 
 });
 // ======================================
