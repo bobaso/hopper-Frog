@@ -418,6 +418,20 @@ document.addEventListener("pointerdown", ()=>{
     jump();
 
 });
+/* ==========================
+   HOW TO PLAY ボタン
+========================== */
+
+const howToPlayButton =
+    document.getElementById("howToPlayButton");
+
+howToPlayButton.addEventListener("pointerdown", (event)=>{
+
+    event.stopPropagation();
+
+    console.log("HOW TO PLAY button tapped");
+
+});
 // ======================================
 // 初期化
 // ======================================
