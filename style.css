@@ -326,3 +326,18 @@ body{
     }
 
 }
+/* ==========================
+   HOW TO PLAY
+========================== */
+
+#howToPlayButton{
+
+    position:absolute;
+
+    left: Xpx;
+    top: Ypx;
+
+    width: Wpx;
+    height: Hpx;
+
+}
