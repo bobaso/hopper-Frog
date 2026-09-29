@@ -367,3 +367,15 @@ body{
     height:1920px;
 
 }
+/* ==========================
+   GAME OVER カエル
+========================== */
+
+#gameOverFrog{
+
+    width:400px;
+    height:400px;
+
+    object-fit:contain;
+
+}
