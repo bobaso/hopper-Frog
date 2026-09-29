@@ -434,9 +434,13 @@ howToPlayButton.addEventListener("pointerdown", (event)=>{
 
 });
 
-howToPlayScreen.addEventListener("pointerdown", ()=>{
+howToPlayScreen.addEventListener("pointerdown", (event)=>{
+
+    event.stopPropagation();
 
     howToPlayScreen.style.display = "none";
+
+    showStartScreen(true);
 
 });
 // ======================================
