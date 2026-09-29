@@ -342,28 +342,3 @@ body{
 ========================== */
 
 #howToPlayScreen{
-
-    position:absolute;
-
-    left:0;
-    top:0;
-
-    width:100%;
-    height:100%;
-
-    display:none;
-
-    z-index:150;
-
-}
-
-#howToPlayScreen img{
-
-    display:block;
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-}
