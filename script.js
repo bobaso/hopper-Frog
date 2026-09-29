@@ -442,6 +442,7 @@ howToPlayScreen.addEventListener("pointerdown", (event)=>{
 
     showStartScreen(true);
 
+    background1.style.opacity = "1";
 });
 // ======================================
 // 初期化
