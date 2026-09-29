@@ -339,3 +339,31 @@ body{
 
 
 }
+/* ==========================
+   HOW TO PLAY画面
+========================== */
+
+#howToPlayScreen{
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:1080px;
+    height:1920px;
+
+    display:none;
+
+    z-index:500;
+
+}
+
+#howToPlayScreen img{
+
+    display:block;
+
+    width:1080px;
+    height:1920px;
+
+}
