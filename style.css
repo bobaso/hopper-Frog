@@ -181,7 +181,18 @@ body{
     z-index:120;
 
 }
+/* HOW TO PLAY */
 
+#howToPlayButton{
+
+    width:560px;
+    height:100px;
+
+    align-self:flex-end;
+
+    margin-right:60px;
+
+}
 /* ロゴ */
 
 #logo{
