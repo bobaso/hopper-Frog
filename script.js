@@ -428,16 +428,19 @@ document.addEventListener("pointerdown", (event)=>{
 
     }
 
-    // HOW TO PLAYボタンを押した
-    if(event.target === howToPlayButton){
+ // HOW TO PLAYボタンを押した
+if(
+    howToPlayButton &&
+    howToPlayButton.contains(event.target)
+){
 
-        howToPlayScreen.style.display = "block";
+    howToPlayScreen.style.display = "block";
 
-        document.getElementById("startScreen").style.display = "none";
+    document.getElementById("startScreen").style.display = "none";
 
-        return;
+    return;
 
-    }
+}
 
     // スタート画面
     if(!gameStarted){
