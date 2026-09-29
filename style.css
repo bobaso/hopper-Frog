@@ -23,23 +23,18 @@ body{
 
 body{
 
-    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
     height:100dvh;
-
-    overflow:hidden;
-
-    position:relative;
 }
-
 /* ==========================
    ゲーム本体
 ========================== */
 #game{
 
-    position:absolute;
-
-    left:50%;
-    top:50%;
+    position:relative;
 
     width:1080px;
     height:1920px;
@@ -47,6 +42,8 @@ body{
     overflow:hidden;
 
     transform-origin:center center;
+
+    flex-shrink:0;
 
 }
 
